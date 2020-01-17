@@ -1,3 +1,7 @@
 acme:
   mail: user@example.org
   production: false
+
+app:
+  name: test
+  domain: dev.liefer.it

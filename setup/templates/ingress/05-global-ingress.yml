@@ -19,7 +19,7 @@ spec:
     - match: PathPrefix(`/`)
       kind: Rule
       services:
-        - name: redirect-service
+        - name: landingpage
           port: 80
       middlewares:
         - name: global-redirect-http
