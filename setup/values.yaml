@@ -4,4 +4,4 @@ acme:
 
 app:
   name: test
-  domain: dev.liefer.it
+  domain: dev.example.it
