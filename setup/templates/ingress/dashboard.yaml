@@ -1,0 +1,28 @@
+# enable the Traefik Dashboard
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: traefik-auth
+spec:
+  basicAuth:
+    secret: traefik-admin
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: PathPrefix(`/dashboard`) || PathPrefix(`/api`)
+      kind: Rule
+      services:
+      - name: api@internal
+        kind: TraefikService
+      middlewares:
+        - name: traefik-auth
+  tls:
+    certResolver: default
+

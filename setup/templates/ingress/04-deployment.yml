@@ -22,13 +22,14 @@ spec:
            claimName: traefik-cert
       containers:
         - name: traefik
-          image: traefik:v2.1
+          image: traefik:v2.2
           imagePullPolicy: Always
           volumeMounts:
            - name: cert-vol
              mountPath: "/data"
           args:
             - --api.insecure
+            - --api.dashboard
             - --accesslog
             - --entrypoints.web.Address=:80
             - --entrypoints.websecure.Address=:443
@@ -44,3 +45,6 @@ spec:
               containerPort: 80
             - name: websecure
               containerPort: 443
+            - name: admin
+              containerPort: 8080
+
