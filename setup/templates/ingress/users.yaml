@@ -6,5 +6,5 @@ metadata:
 
 data:
   users: |2
-    <fghfghjghjhgjkjhkhjkhjk> # create user&password with 'htpasswd -nb user password | openssl base64' 
-    # lool at https://docs.traefik.io/middlewares/basicauth/
+    <your user and password hash base64 encoded> # create the string with 'htpasswd -nb user password | openssl base64' and paste it here 
+    # look at https://docs.traefik.io/middlewares/basicauth/
